@@ -6,3 +6,11 @@ services:
       - DATABASE_PASSWORD=foo123
     ports:
       - "5433:5433"
+  checks:
+    build:
+      context: ..
+      dockerfile: ./docker/Dockerfile
+    environment:
+      - vertica_host=vertica
+    depends_on:
+      - vertica
