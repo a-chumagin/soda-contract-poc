@@ -1,7 +1,25 @@
-import yaml
+"""
+This module provides a function to generate a data contract from column information.
+The data contract is a YAML representation of the dataset and its columns.
+"""
+
 import re
+import yaml
+
 
 def generate_data_contract(column_info):
+    """
+    Generate a data contract from column information.
+
+    Args:
+        column_info (dict): A dictionary that includes 
+        the table name and a list of columns.
+            Each column is represented as a tuple that 
+            includes the column name, data type, and a nullable flag.
+
+    Returns:
+        str: A string representation of the data contract in YAML format.
+    """
     data_contract = {
         'dataset': column_info['table_name'],
         'columns': [],
@@ -11,7 +29,10 @@ def generate_data_contract(column_info):
         column_name, data_type, is_nullable = column
         column_data = {
             'name': column_name,
-            'data_type': re.sub(r'(varchar|char)\s*\(\s*\d+\s*\)', lambda match: match.group(1).capitalize(), data_type),
+            'data_type': re.sub(
+                r'(varchar|char)\s*\(\s*\d+\s*\)',
+                lambda match: match.group(1).capitalize(),
+                data_type),
             'not_null': not is_nullable
         }
 
