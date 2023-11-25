@@ -13,30 +13,17 @@ Why Vertica? Because Vertica creates initial data when starting the container, w
     cd soda-contract-poc
     ```
 
-2. Install dependencies:
-
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-3. Manually start the Vertica container:
+## Usage
+Run the Docker Compose file to start the Vertica container and the Soda Check container:
 
     ```bash
     docker-compose -f ./docker/docker-compose.yml up -d
     ```
 
-   If you are using a Mac M Processor, then use the following command to run the Vertica container:
+If you are using a Mac M Processor, use the following command to run the Vertica container:
 
     ```bash
     export DOCKER_DEFAULT_PLATFORM=linux/arm64
     export DOCKER_BUILDKIT=0
     docker-compose -f ./docker/docker-compose.yml up -d
     ```
-
-## Usage
-
-Run the following command to generate a data contract and perform checks:
-
-```bash
-python scripts/main_script.py
-```
