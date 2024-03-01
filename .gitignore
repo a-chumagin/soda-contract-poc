@@ -8,6 +8,7 @@ __pycache__/
 venv/
 env/
 
+
 # IDE-specific files
 .vscode/
 .idea/
@@ -77,3 +78,4 @@ yarn-error.log
 .Pipfile
 
 data/*data_contract.yml
+.env
