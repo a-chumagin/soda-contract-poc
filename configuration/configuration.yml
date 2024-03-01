@@ -3,7 +3,7 @@ data_source vertica_local:
   connection:
     host: ${vertica_host}
     port: '5433'
-    username: dbadmin
-    password: foo123
-    database: Vmart
-    schema: public
+    username: ${vertica_user}
+    password: ${vertica_password}
+    database: ${vertica_db}
+    schema: ${vertica_schema}

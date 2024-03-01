@@ -10,7 +10,14 @@ services:
     build:
       context: ..
       dockerfile: ./docker/Dockerfile
+    volumes:
+      - /Users/achumagin/depot/data_qa/etg/soda-contract/data:/app/data
     environment:
       - vertica_host=vertica
+      - vertica_port=5433
+      - vertica_user=dbadmin
+      - vertica_password=foo123
+      - vertica_db=Vmart
+      - vertica_schema=public
     depends_on:
       - vertica

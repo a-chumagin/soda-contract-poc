@@ -29,10 +29,7 @@ def generate_data_contract(column_info):
         column_name, data_type, is_nullable = column
         column_data = {
             'name': column_name,
-            'data_type': re.sub(
-                r'(varchar|char)\s*\(\s*\d+\s*\)',
-                lambda match: match.group(1).capitalize(),
-                data_type),
+            'data_type': data_type,
             'not_null': not is_nullable
         }
 

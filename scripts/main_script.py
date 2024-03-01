@@ -16,6 +16,7 @@ def main():
     and run checks on the generated file.
     """
     table_name = 'customer_dimension'
+    schema_name = 'public'
     config_path = 'configuration/configuration.yml'
     data_contract_path = f"data/{table_name}_data_contract.yml"
 
@@ -25,7 +26,7 @@ def main():
     connection = create_vertica_connection(vertica_config)
     print("Successfully connected to Vertica!")
 
-    column_info = get_vertica_table_structure(table_name, connection)
+    column_info = get_vertica_table_structure(schema_name, table_name, connection)
     data_contract_yaml = generate_data_contract(column_info)
 
     with open(data_contract_path, 'w', encoding='utf-8') as yaml_file:
