@@ -70,7 +70,8 @@ def get_vertica_table_structure(schema_name, table_name, connection):
     with connection as conn:
         query = (
             "SELECT c.column_name, t.type_name, c.is_nullable "
-            f"FROM columns c JOIN types t ON c.data_type_id = t.type_id WHERE table_name='{table_name}' and table_schema='{schema_name}'"
+            f"FROM columns c JOIN types t ON c.data_type_id = t.type_id "
+            f"WHERE table_name='{table_name}' and table_schema='{schema_name}'"
         )
 
         conn.cursor().execute(query)

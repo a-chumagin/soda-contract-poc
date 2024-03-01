@@ -3,7 +3,6 @@ This module provides a function to generate a data contract from column informat
 The data contract is a YAML representation of the dataset and its columns.
 """
 
-import re
 import yaml
 
 
