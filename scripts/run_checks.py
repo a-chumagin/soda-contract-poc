@@ -3,6 +3,7 @@ This module provides a class to read a data contract, translate it,
 prepare a scan, execute the scan, and display the results.
 """
 
+import time
 from soda.contracts.data_contract_translator import DataContractTranslator
 from soda.scan import Scan
 
@@ -48,10 +49,13 @@ class DataContractScanner:
         Args:
             sodacl_str (str): The  Soda Checks Language string.
         """
+        data_source_name = "vertica_local"
+        result_file_name = f"./data/results/{data_source_name}_results_{time.time()}.json"
         self.scan.set_verbose(True)
-        self.scan.set_data_source_name("vertica_local")
+        self.scan.set_data_source_name(data_source_name)
         self.scan.add_configuration_yaml_file(file_path="configuration/configuration.yml")
         self.scan.add_sodacl_yaml_str(sodacl_str)
+        self.scan.set_scan_results_file(result_file_name)
 
     def execute_scan(self):
         """

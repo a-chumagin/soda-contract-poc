@@ -21,3 +21,14 @@ services:
       - vertica_schema=public
     depends_on:
       - vertica
+  reports:
+    build:
+      context: ..
+      dockerfile: ./docker/Dockerfile
+    command: streamlit run /app/reports.py
+    volumes:
+      - ../data:/app/data
+    ports:
+      - "8501:8501"
+    depends_on:
+      - checks

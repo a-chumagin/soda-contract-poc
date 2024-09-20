@@ -34,4 +34,5 @@ def generate_data_contract(column_info):
 
         data_contract['columns'].append(column_data)
 
-    return yaml.dump(data_contract, default_flow_style=False)
+    dump = yaml.dump(data_contract, default_flow_style=False, sort_keys=False)
+    return dump
