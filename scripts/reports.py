@@ -1,6 +1,6 @@
-import streamlit as st
-import pandas as pd
 import json, os
+import pandas as pd
+import streamlit as st
 
 def load_data(folder_path):
     filenames = os.listdir(folder_path)
@@ -21,21 +21,21 @@ def calculate_time_running(start_time, end_time):
     return (end_time - start_time).total_seconds()
 
 def get_outcomes(checks, outcome):
-  all_checks = []
-  for check in checks:
-    if check['outcome'] == outcome:
-      all_checks.append({
-        'Name': check['name'],
-        'Table name': check['table'],
-        'Outcome': check['outcome'],
-        'Diagnostics': check['diagnostics'],
-        'Description': get_description_value(check)
-      })
-  return pd.DataFrame(all_checks)
+    all_checks = []
+    for check in checks:
+        if check['outcome'] == outcome:
+            all_checks.append({
+              'Name': check['name'],
+              'Table name': check['table'],
+              'Outcome': check['outcome'],
+              'Diagnostics': check['diagnostics'],
+              'Description': get_description_value(check)
+            })
+    return pd.DataFrame(all_checks)
 
 def get_description_value(check):
-  description_value = check['resourceAttributes'][0]['value'] if check['resourceAttributes'] else 'N/A'
-  return description_value
+    description_value = check['resourceAttributes'][0]['value'] if check['resourceAttributes'] else 'N/A'
+    return description_value
 
 def display_report(df, selected_filename):
     st.markdown(f"[share](/?file={selected_filename})")
@@ -63,6 +63,6 @@ def display_report(df, selected_filename):
     st.write(df['logs'][0])
 
 # Call the function to display the report
-folder_path = './data/results'
-df,selected_filename  = load_data(folder_path)
-display_report(df, selected_filename)
+FOLDER_PATH = './data/results'
+data_f, filename  = load_data(FOLDER_PATH)
+display_report(data_f, filename)

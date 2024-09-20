@@ -3,9 +3,9 @@ This module provides a class to read a data contract, translate it,
 prepare a scan, execute the scan, and display the results.
 """
 
+import time
 from soda.contracts.data_contract_translator import DataContractTranslator
 from soda.scan import Scan
-import time
 
 
 class DataContractScanner:
