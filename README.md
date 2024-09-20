@@ -17,7 +17,7 @@ Why Vertica? Because Vertica creates initial data when starting the container, w
 Run the Docker Compose file to start the Vertica container and the Soda Check container:
 
     ```bash
-    docker-compose -f ./docker/docker-compose.yml up -d
+    docker-compose -f ./docker/docker-compose.yml up
     ```
 
 If you are using a Mac M Processor, use the following command to run the Vertica container:
@@ -25,7 +25,7 @@ If you are using a Mac M Processor, use the following command to run the Vertica
     ```bash
     export DOCKER_DEFAULT_PLATFORM=linux/arm64
     export DOCKER_BUILDKIT=0
-    docker-compose -f ./docker/docker-compose.yml up -d
+    docker-compose -f ./docker/docker-compose.yml up
     ```
 
 ## Reports
