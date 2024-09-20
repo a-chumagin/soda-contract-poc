@@ -79,4 +79,4 @@ yarn-error.log
 
 data/*data_contract.yml
 .env
-data/reports/*
+data/results/*
